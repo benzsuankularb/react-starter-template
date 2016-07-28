@@ -1,7 +1,8 @@
 var express = require('express')
 var fs = require("fs")
 var app = express()
-var root = __dirname + '/src/public';
+var config = require('./config')
+var root = config.PUBLIC_DIR
 
 app.use('/react', express.static(root + '/react'));
 app.use('/static', express.static(root + '/static'));
@@ -18,8 +19,8 @@ for (var i in files){
 	var fileName = splited.pop();
 	if (extension == 'html') {
 		app.get('/' + fileName, function(req, res) {
-                	res.sendFile(root + '/html/' + files[i]);
-        	});
+            res.sendFile(root + '/html/' + files[i]);
+        });
 	}
 }
 
@@ -39,4 +40,4 @@ app.use(function(req, res, next){
 	res.type('txt').send('Not found');
 });
 
-app.listen(8080)
+app.listen(config.port)
