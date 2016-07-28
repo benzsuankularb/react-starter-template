@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"serve": "NODE_ENV=production node server.js",
-	"serve-dev": "node server.js",
-	"build-dev": "webpack --watch -d",
+	"server": "NODE_ENV=production node server.js",
+	"server-dev": "node server.js",
+	"dev": "webpack --watch -d",
+	"dev-once": "webpack -d",
 	"build": "NODE_ENV=production webpack -p --watch",
 	"build-once": "NODE_ENV=production webpack -p"
   },

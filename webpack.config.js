@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require("fs")
+var configFile = require("./config")
 
 var BUILD_DIR = path.resolve(__dirname, 'src/public/react');
 var APP_DIR = path.resolve(__dirname, 'src/app');
@@ -59,9 +60,7 @@ var config = {
         	})
     	],
         externals: {
-                'config':  JSON.stringify({
-                        // Your react website configuration here
-                })
+                'config':  JSON.stringify(configFile)
         }
 };
 
